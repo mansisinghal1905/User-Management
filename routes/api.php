@@ -1,5 +1,4 @@
 <?php
-// routes/api.php
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,14 +30,7 @@ Route::middleware('api')->group(function () {
     Route::apiResource('users', UserController::class);
 });
 
-// Alternative explicit routes
-Route::prefix('users')->middleware('api')->group(function () {
-    Route::get('/', [UserController::class, 'index']);
-    Route::post('/', [UserController::class, 'store']);
-    Route::get('/{id}', [UserController::class, 'show']);
-    Route::put('/{id}', [UserController::class, 'update']);
-    Route::delete('/{id}', [UserController::class, 'destroy']);
-});
+
 
 // Fallback for undefined API routes
 Route::fallback(function () {
